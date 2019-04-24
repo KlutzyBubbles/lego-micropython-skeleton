@@ -1,4 +1,4 @@
-from parameters import Stop, Direction
+from pybricks.parameters import Stop, Direction
 
 class Motor():
 

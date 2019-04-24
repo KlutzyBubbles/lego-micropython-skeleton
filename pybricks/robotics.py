@@ -1,4 +1,4 @@
-from parameters import Stop
+from pybricks.parameters import Stop
 
 class DriveBase():
 
