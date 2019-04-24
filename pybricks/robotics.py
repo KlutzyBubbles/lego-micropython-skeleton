@@ -11,7 +11,7 @@ class DriveBase():
     def drive(self, speed, steering):
         return
 
-    def drive_time(self, speed, steering):
+    def drive_time(self, speed, steering, time):
         return
 
     def stop(self, stop_type=Stop.COAST):
