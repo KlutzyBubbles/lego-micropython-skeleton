@@ -17,4 +17,4 @@ jobs:
     - stage: publish
       script:
         - pip install --upgrade setuptools wheel twine
-        - update.sh
+        - ./update.sh
