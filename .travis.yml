@@ -16,5 +16,5 @@ jobs:
         - coveralls
     - stage: publish
       script:
-        - pip install --upgrade setuptools wheel twine
+        - pip install --user --upgrade setuptools wheel twine
         - sudo bash ./update.sh
