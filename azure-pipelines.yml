@@ -10,7 +10,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 jobs:
-- job: 'Test'
+- job: Test
   strategy:
     matrix:
       Python27:
@@ -43,7 +43,8 @@ jobs:
         pytest
     displayName: 'pytest'
 
-- job: 'Build'
+- job: Build
+  dependsOn: Test
   steps:
   - task: CopyFiles@2
     inputs:
