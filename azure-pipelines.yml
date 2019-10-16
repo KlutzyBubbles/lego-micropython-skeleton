@@ -46,6 +46,10 @@ steps:
 - task: CopyFiles@2
   inputs:
     SourceFolder: '$(Build.Repository.LocalPath)'
-    Contents: 'requirements.txt, setup.py'
+    Contents: |
+      requirements.txt
+      setup.py
+      readme.md
+      LICENSE
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
   displayName: 'Copy requirements and setup'
