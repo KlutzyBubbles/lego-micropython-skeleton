@@ -49,7 +49,9 @@ jobs:
   - task: CopyFiles@2
     inputs:
       SourceFolder: '$(Build.Repository.LocalPath)/pybricks'
-      Contents: '**'
+      Contents: |
+        *.py
+        **/*.py
       TargetFolder: '$(Build.ArtifactStagingDirectory)/pybricks'
     displayName: 'Copy pybricks source'
   - task: CopyFiles@2
