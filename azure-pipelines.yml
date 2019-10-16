@@ -36,3 +36,16 @@ steps:
     pip install pytest pytest-azurepipelines
     pytest
   displayName: 'pytest'
+
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '$(Build.Repository.LocalPath)/pybricks'
+    Contents: '**'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)/pybricks'
+  displayName: 'Copy pybricks source'
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '$(Build.Repository.LocalPath)'
+    Contents: 'requirements.txt, setup.py'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+  displayName: 'Copy requirements and setup'
