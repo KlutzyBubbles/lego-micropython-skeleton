@@ -1,0 +1,71 @@
+# Python package
+# Create and test a Python package on multiple Python versions.
+# Add steps that analyze code, save the dist with the build record, publish to a PyPI-compatible index, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/python
+
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+jobs:
+- job: Test
+  strategy:
+    matrix:
+      Python27:
+        python.version: '2.7'
+      Python34:
+        python.version: '3.4'
+      Python35:
+        python.version: '3.5'
+      Python36:
+        python.version: '3.6'
+      Python37:
+        python.version: '3.7'
+  steps:
+  - task: UsePythonVersion@0
+    inputs:
+      versionSpec: '$(python.version)'
+    displayName: 'Use Python $(python.version)'
+  - task: Bash@3
+    inputs:
+      targetType: 'inline'
+      script: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    displayName: 'Install dependencies'
+  - task: Bash@3
+    inputs:
+      targetType: 'inline'
+      script: |
+        pip install pytest pytest-azurepipelines
+        pytest
+    displayName: 'pytest'
+
+- job: Build
+  dependsOn: Test
+  steps:
+  - task: CopyFiles@2
+    inputs:
+      SourceFolder: '$(Build.Repository.LocalPath)/pybricks'
+      Contents: |
+        *.py
+        **/*.py
+      TargetFolder: '$(Build.ArtifactStagingDirectory)/pybricks'
+    displayName: 'Copy pybricks source'
+  - task: CopyFiles@2
+    inputs:
+      SourceFolder: '$(Build.Repository.LocalPath)'
+      Contents: |
+        requirements.txt
+        setup.py
+        README.md
+        LICENSE
+      TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    displayName: 'Copy requirements and setup'
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+      ArtifactName: 'build'
+      publishLocation: 'Container'

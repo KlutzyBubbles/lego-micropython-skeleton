@@ -1,16 +1,18 @@
 import setuptools
+import os
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
     name="lego-mp-skeleton",
-    version="0.1.7",
+    version="0.1.6" + os.environ['PACKAGE_BUILD'],
     author="Lee Tzilantonis",
     author_email="LTzilantonis@gmail.com",
     description="Skeleton for the Lego EV3 MicroPython Port",
     long_description=long_description,
     long_description_content_type="text/markdown",
+    install_requires="enum34",
     url="https://github.com/klutzybubbles/lego-micropython-skeleton",
     packages=setuptools.find_packages(),
     classifiers=[
