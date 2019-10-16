@@ -8,48 +8,61 @@ trigger:
 
 pool:
   vmImage: 'ubuntu-latest'
-strategy:
-  matrix:
-    Python27:
-      python.version: '2.7'
-    Python34:
-      python.version: '3.4'
-    Python35:
-      python.version: '3.5'
-    Python36:
-      python.version: '3.6'
-    Python37:
-      python.version: '3.7'
 
-steps:
-- task: UsePythonVersion@0
-  inputs:
-    versionSpec: '$(python.version)'
-  displayName: 'Use Python $(python.version)'
+jobs:
+- job: 'Test'
+  strategy:
+    matrix:
+      Python27:
+        python.version: '2.7'
+      Python34:
+        python.version: '3.4'
+      Python35:
+        python.version: '3.5'
+      Python36:
+        python.version: '3.6'
+      Python37:
+        python.version: '3.7'
+  steps:
+  - task: UsePythonVersion@0
+    inputs:
+      versionSpec: '$(python.version)'
+    displayName: 'Use Python $(python.version)'
+  - task: Bash@3
+    inputs:
+      targetType: 'inline'
+      script: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    displayName: 'Install dependencies'
+  - task: Bash@3
+    inputs:
+      targetType: 'inline'
+      script: |
+        pip install pytest pytest-azurepipelines
+        pytest
+    displayName: 'pytest'
 
-- script: |
-    python -m pip install --upgrade pip
-    pip install -r requirements.txt
-  displayName: 'Install dependencies'
-
-- script: |
-    pip install pytest pytest-azurepipelines
-    pytest
-  displayName: 'pytest'
-
-- task: CopyFiles@2
-  inputs:
-    SourceFolder: '$(Build.Repository.LocalPath)/pybricks'
-    Contents: '**'
-    TargetFolder: '$(Build.ArtifactStagingDirectory)/pybricks'
-  displayName: 'Copy pybricks source'
-- task: CopyFiles@2
-  inputs:
-    SourceFolder: '$(Build.Repository.LocalPath)'
-    Contents: |
-      requirements.txt
-      setup.py
-      readme.md
-      LICENSE
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
-  displayName: 'Copy requirements and setup'
+- job: 'Build'
+  steps:
+  - task: CopyFiles@2
+    inputs:
+      SourceFolder: '$(Build.Repository.LocalPath)/pybricks'
+      Contents: '**'
+      TargetFolder: '$(Build.ArtifactStagingDirectory)/pybricks'
+    displayName: 'Copy pybricks source'
+  - task: CopyFiles@2
+    inputs:
+      SourceFolder: '$(Build.Repository.LocalPath)'
+      Contents: |
+        requirements.txt
+        setup.py
+        README.md
+        LICENSE
+      TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    displayName: 'Copy requirements and setup'
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+      ArtifactName: 'build'
+      publishLocation: 'Container'
