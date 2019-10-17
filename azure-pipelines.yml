@@ -6,11 +6,10 @@
 trigger:
 - master
 
-pool:
-  vmImage: 'ubuntu-latest'
-
 jobs:
 - job: Test
+  pool:
+    vmImage: 'ubuntu-latest'
   strategy:
     matrix:
       Python27:
@@ -44,6 +43,8 @@ jobs:
     displayName: 'pytest'
 
 - job: Build
+  pool:
+    vmImage: 'ubuntu-latest'
   dependsOn: Test
   steps:
   - task: CopyFiles@2
@@ -51,7 +52,7 @@ jobs:
       SourceFolder: '$(Build.Repository.LocalPath)/pybricks'
       Contents: |
         *.py
-        **/*.py
+        **\*.py
       TargetFolder: '$(Build.ArtifactStagingDirectory)/pybricks'
     displayName: 'Copy pybricks source'
   - task: CopyFiles@2
