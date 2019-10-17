@@ -51,7 +51,7 @@ jobs:
   pool:
     vmImage: 'ubuntu-latest'
   dependsOn: Test
-  condition: eq($(Build.SourceBranchName), $(BuildBranch))
+  condition: eq(variables['Build.SourceBranchName'], variables['BuildBranch'])
   steps:
   - task: CopyFiles@2
     inputs:
