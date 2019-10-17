@@ -3,8 +3,13 @@
 # Add steps that analyze code, save the dist with the build record, publish to a PyPI-compatible index, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/python
 
+variables:
+- name: BuildBranch
+  value: master
+
 trigger:
 - master
+- dev
 
 jobs:
 - job: Test
@@ -46,6 +51,7 @@ jobs:
   pool:
     vmImage: 'ubuntu-latest'
   dependsOn: Test
+  condition: eq($(Build.SourceBranchName), $(BuildBranch))
   steps:
   - task: CopyFiles@2
     inputs:
