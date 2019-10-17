@@ -18,7 +18,7 @@ class Direction(Enum):
     COUNTCLOCKWISE = 1
 
 class Stop(Enum):
-    
+
     COAST = 0
     BRAKE = 1
     HOLD = 2

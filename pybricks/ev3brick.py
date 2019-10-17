@@ -33,7 +33,7 @@ class display():
     @staticmethod
     def image(file_name, alignment=Align.CENTER, coordinate=None, clear=True):
         return
-    
+
 class battery():
 
     @staticmethod
