@@ -2,7 +2,7 @@
 
 Master Build Status: [![Build Status](https://dev.azure.com/leetzilantonisibmcom/LegoExtension/_apis/build/status/KlutzyBubbles.lego-micropython-skeleton?branchName=master)](https://dev.azure.com/leetzilantonisibmcom/LegoExtension/_build/latest?definitionId=3&branchName=master)
 
-Dev Test Status: [![Build Status](https://dev.azure.com/leetzilantonisibmcom/LegoExtension/_apis/build/status/KlutzyBubbles.lego-micropython-skeleton?branchName=dev)](https://dev.azure.com/leetzilantonisibmcom/LegoExtension/_build/latest?definitionId=3&branchName=dev)
+Dev Build Status: [![Build Status](https://dev.azure.com/leetzilantonisibmcom/LegoExtension/_apis/build/status/KlutzyBubbles.lego-micropython-skeleton?branchName=dev)](https://dev.azure.com/leetzilantonisibmcom/LegoExtension/_build/latest?definitionId=3&branchName=dev)
 
 Version spec MAJOR.MINOR.PATCH.(dev)YYYYMMDDBB with BB being the build number for that day (1-1000)
 
