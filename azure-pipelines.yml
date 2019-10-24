@@ -81,6 +81,7 @@ jobs:
   pool:
     vmImage: 'ubuntu-latest'
   dependsOn: Test
+  environment: 'skeleton-$(Branch)'
   strategy:
     runOnce:
       deploy:
