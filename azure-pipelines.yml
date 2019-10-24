@@ -10,82 +10,91 @@ trigger:
 variables:
   Branch: '$(Build.SourceBranchName)'
   BuildNumber: '$(Build.BuildNumber)'
-  WorkingDirectory: '$(System.DefaultWorkingDirectory)'
+  WorkingDirectory: '$(System.ArtifactsDirectory)'
 
 jobs:
-- job: Test
-  pool:
-    vmImage: 'ubuntu-latest'
-  strategy:
-    matrix:
-      Python27:
-        python.version: '2.7'
-      Python34:
-        python.version: '3.4'
-      Python35:
-        python.version: '3.5'
-      Python36:
-        python.version: '3.6'
-      Python37:
-        python.version: '3.7'
-  steps:
-  - task: UsePythonVersion@0
-    inputs:
-      versionSpec: '$(python.version)'
-    displayName: 'Use Python $(python.version)'
-  - task: Bash@3
-    inputs:
-      targetType: 'inline'
-      script: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
-    displayName: 'Install dependencies'
-  - task: Bash@3
-    inputs:
-      targetType: 'inline'
-      script: |
-        pip install pytest pytest-azurepipelines
-        pytest
-    displayName: 'pytest'
-
-#- job: Build
+#- job: Test
 #  pool:
 #    vmImage: 'ubuntu-latest'
-#  dependsOn: Test
+#  strategy:
+#    matrix:
+#      Python27:
+#        python.version: '2.7'
+#      Python34:
+#        python.version: '3.4'
+#      Python35:
+#        python.version: '3.5'
+#      Python36:
+#        python.version: '3.6'
+#      Python37:
+#        python.version: '3.7'
 #  steps:
-#  - task: CopyFiles@2
+#  - task: UsePythonVersion@0
 #    inputs:
-#      SourceFolder: '$(Build.Repository.LocalPath)/pybricks'
-#      Contents: |
-#        *.py
-#        **\*.py
-#      TargetFolder: '$(WorkingDirectory)/pybricks'
-#    displayName: 'Copy pybricks source'
-#  - task: CopyFiles@2
+#      versionSpec: '$(python.version)'
+#    displayName: 'Use Python $(python.version)'
+#  - task: Bash@3
 #    inputs:
-#      SourceFolder: '$(Build.Repository.LocalPath)'
-#      Contents: |
-#        requirements.txt
-#        setup.py
-#        README.md
-#        LICENSE
-#      TargetFolder: '$(WorkingDirectory)'
-#    displayName: 'Copy requirements and setup'
-#  - task: PublishBuildArtifacts@1
+#      targetType: 'inline'
+#      script: |
+#        python -m pip install --upgrade pip
+#        pip install -r requirements.txt
+#    displayName: 'Install dependencies'
+#  - task: Bash@3
 #    inputs:
-#      PathtoPublish: '$(WorkingDirectory)'
-#      ArtifactName: 'build'
-#      publishLocation: 'Container'
+#      targetType: 'inline'
+#      script: |
+#        pip install pytest pytest-azurepipelines
+#        pytest
+#    displayName: 'pytest'
+
+- job: Build
+  pool:
+    vmImage: 'ubuntu-latest'
+  dependsOn: Test
+  steps:
+  - task: CopyFiles@2
+    inputs:
+      SourceFolder: '$(Build.Repository.LocalPath)/pybricks'
+      Contents: |
+        *.py
+        **\*.py
+      TargetFolder: '$(Build.ArtifactStagingDirectory)/pybricks'
+    displayName: 'Copy pybricks source'
+  - task: CopyFiles@2
+    inputs:
+      SourceFolder: '$(Build.Repository.LocalPath)'
+      Contents: |
+        requirements.txt
+        setup.py
+        README.md
+        LICENSE
+      TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    displayName: 'Copy requirements and setup'
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+      ArtifactName: 'build'
+      publishLocation: 'Container'
 
 - deployment: Distribute
   pool:
     vmImage: 'ubuntu-latest'
-#  dependsOn: Test
+  dependsOn: Build
   environment: 'skeleton-$(Branch)'
   strategy:
     runOnce:
       deploy:
         steps:
+        - task: DownloadBuildArtifacts@0
+          inputs:
+            buildType: 'specific'
+            project: 'e89ff3b5-d86a-4bb3-bcef-40f7255e5d10'
+            pipeline: '3'
+            buildVersionToDownload: 'latestFromBranch'
+            branchName: '$(Build.SourceBranch)'
+            downloadType: 'specific'
+            downloadPath: '$(System.ArtifactsDirectory)'
         - task: UsePythonVersion@0
           displayName: 'Use Python 3.7'
           inputs:
