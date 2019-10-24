@@ -10,7 +10,7 @@ trigger:
 variables:
   Branch: '$(Build.SourceBranchName)'
   BuildNumber: '$(Build.BuildNumber)'
-  WorkingDirectory: '$(Build.ArtifactStagingDirectory)'
+  WorkingDirectory: '$(System.DefaultWorkingDirectory)'
 
 jobs:
 - job: Test
@@ -48,29 +48,29 @@ jobs:
         pytest
     displayName: 'pytest'
 
-- job: Build
-  pool:
-    vmImage: 'ubuntu-latest'
-  dependsOn: Test
-  steps:
-  - task: CopyFiles@2
-    inputs:
-      SourceFolder: '$(Build.Repository.LocalPath)/pybricks'
-      Contents: |
-        *.py
-        **\*.py
-      TargetFolder: '$(WorkingDirectory)/pybricks'
-    displayName: 'Copy pybricks source'
-  - task: CopyFiles@2
-    inputs:
-      SourceFolder: '$(Build.Repository.LocalPath)'
-      Contents: |
-        requirements.txt
-        setup.py
-        README.md
-        LICENSE
-      TargetFolder: '$(WorkingDirectory)'
-    displayName: 'Copy requirements and setup'
+#- job: Build
+#  pool:
+#    vmImage: 'ubuntu-latest'
+#  dependsOn: Test
+#  steps:
+#  - task: CopyFiles@2
+#    inputs:
+#      SourceFolder: '$(Build.Repository.LocalPath)/pybricks'
+#      Contents: |
+#        *.py
+#        **\*.py
+#      TargetFolder: '$(WorkingDirectory)/pybricks'
+#    displayName: 'Copy pybricks source'
+#  - task: CopyFiles@2
+#    inputs:
+#      SourceFolder: '$(Build.Repository.LocalPath)'
+#      Contents: |
+#        requirements.txt
+#        setup.py
+#        README.md
+#        LICENSE
+#      TargetFolder: '$(WorkingDirectory)'
+#    displayName: 'Copy requirements and setup'
 #  - task: PublishBuildArtifacts@1
 #    inputs:
 #      PathtoPublish: '$(WorkingDirectory)'
@@ -80,7 +80,7 @@ jobs:
 - deployment: Distribute
   pool:
     vmImage: 'ubuntu-latest'
-  dependsOn: Build
+  dependsOn: Test
   environment: 'skeleton-$(Branch)'
   strategy:
     runOnce:
