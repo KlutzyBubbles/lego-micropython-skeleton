@@ -101,7 +101,7 @@ jobs:
         - task: Bash@3
           inputs:
             targetType: 'inline'
-            workingDirectory: '$(System.ArtifactsDirectory)'
+            workingDirectory: '$(System.ArtifactsDirectory)/build'
             script: |
               echo $PWD
               echo $(ls)
@@ -111,7 +111,7 @@ jobs:
         - task: Bash@3
           inputs:
             targetType: 'inline'
-            workingDirectory: '$(System.ArtifactsDirectory)'
+            workingDirectory: '$(System.ArtifactsDirectory)/build'
             script: |
               echo $PWD
               pip install --user --upgrade setuptools wheel twine
@@ -119,7 +119,7 @@ jobs:
         - task: Bash@3
           inputs:
             targetType: 'inline'
-            workingDirectory: '$(System.ArtifactsDirectory)'
+            workingDirectory: '$(System.ArtifactsDirectory)/build'
             script: |
               echo $PWD
               prefix=""
