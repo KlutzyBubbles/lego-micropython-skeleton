@@ -8,49 +8,52 @@ trigger:
 - dev
 
 variables:
-  Branch: '$(Build.SourceBranchName)'
-  BuildNumber: '$(Build.BuildNumber)'
+- group: pypi-credentials
+- name: Branch
+  value: '$(Build.SourceBranchName)'
+- name: BuildNumber
+  value: '$(Build.BuildNumber)'
 
 jobs:
-#- job: Test
-#  pool:
-#    vmImage: 'ubuntu-latest'
-#  strategy:
-#    matrix:
-#      Python27:
-#        python.version: '2.7'
-#      Python34:
-#        python.version: '3.4'
-#      Python35:
-#        python.version: '3.5'
-#      Python36:
-#        python.version: '3.6'
-#      Python37:
-#        python.version: '3.7'
-#  steps:
-#  - task: UsePythonVersion@0
-#    inputs:
-#      versionSpec: '$(python.version)'
-#    displayName: 'Use Python $(python.version)'
-#  - task: Bash@3
-#    inputs:
-#      targetType: 'inline'
-#      script: |
-#        python -m pip install --upgrade pip
-#        pip install -r requirements.txt
-#    displayName: 'Install dependencies'
-#  - task: Bash@3
-#    inputs:
-#      targetType: 'inline'
-#      script: |
-#        pip install pytest pytest-azurepipelines
-#        pytest
-#    displayName: 'pytest'
+- job: Test
+  pool:
+    vmImage: 'ubuntu-latest'
+  strategy:
+    matrix:
+      Python27:
+        python.version: '2.7'
+      Python34:
+        python.version: '3.4'
+      Python35:
+        python.version: '3.5'
+      Python36:
+        python.version: '3.6'
+      Python37:
+        python.version: '3.7'
+  steps:
+  - task: UsePythonVersion@0
+    inputs:
+      versionSpec: '$(python.version)'
+    displayName: 'Use Python $(python.version)'
+  - task: Bash@3
+    inputs:
+      targetType: 'inline'
+      script: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    displayName: 'Install dependencies'
+  - task: Bash@3
+    inputs:
+      targetType: 'inline'
+      script: |
+        pip install pytest pytest-azurepipelines
+        pytest
+    displayName: 'pytest'
 
 - job: Build
   pool:
     vmImage: 'ubuntu-latest'
-#  dependsOn: Test
+  dependsOn: Test
   steps:
   - task: CopyFiles@2
     inputs:
