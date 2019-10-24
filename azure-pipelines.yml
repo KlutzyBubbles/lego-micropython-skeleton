@@ -10,7 +10,6 @@ trigger:
 variables:
   Branch: '$(Build.SourceBranchName)'
   BuildNumber: '$(Build.BuildNumber)'
-  WorkingDirectory: '$(System.ArtifactsDirectory)'
 
 jobs:
 #- job: Test
@@ -102,6 +101,7 @@ jobs:
         - task: Bash@3
           inputs:
             targetType: 'inline'
+            workingDirectory: '$(System.ArtifactsDirectory)'
             script: |
               echo $PWD
               echo $(ls)
@@ -111,7 +111,7 @@ jobs:
         - task: Bash@3
           inputs:
             targetType: 'inline'
-            workingDirectory: '$(WorkingDirectory)'
+            workingDirectory: '$(System.ArtifactsDirectory)'
             script: |
               echo $PWD
               pip install --user --upgrade setuptools wheel twine
@@ -119,7 +119,7 @@ jobs:
         - task: Bash@3
           inputs:
             targetType: 'inline'
-            workingDirectory: '$(WorkingDirectory)'
+            workingDirectory: '$(System.ArtifactsDirectory)'
             script: |
               echo $PWD
               prefix=""
