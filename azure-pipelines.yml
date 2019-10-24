@@ -51,7 +51,7 @@ jobs:
 - job: Build
   pool:
     vmImage: 'ubuntu-latest'
-  dependsOn: Test
+#  dependsOn: Test
   steps:
   - task: CopyFiles@2
     inputs:
