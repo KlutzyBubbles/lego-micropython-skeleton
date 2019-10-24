@@ -11,9 +11,9 @@ class TestMotor:
         yield motor
 
     def test_init(self):
-        motor = Motor(Port.A, direction=Direction.COUNTCLOCKWISE, gears=5)
+        motor = Motor(Port.A, direction=Direction.COUNTERCLOCKWISE, gears=5)
         assert motor.port == Port.A
-        assert motor.direction == Direction.COUNTCLOCKWISE
+        assert motor.direction == Direction.COUNTERCLOCKWISE
         assert motor.gears == 5
         motor = Motor(Port.B)
         assert motor.port == Port.B
@@ -246,9 +246,9 @@ class TestGyroSensor:
         sensor = GyroSensor(Port.S1)
         assert sensor.port == Port.S1
         assert sensor.direction == Direction.CLOCKWISE
-        sensor = GyroSensor(Port.S2, direction=Direction.COUNTCLOCKWISE)
+        sensor = GyroSensor(Port.S2, direction=Direction.COUNTERCLOCKWISE)
         assert sensor.port == Port.S2
-        assert sensor.direction == Direction.COUNTCLOCKWISE
+        assert sensor.direction == Direction.COUNTERCLOCKWISE
         with pytest.raises(Exception):
             sensor = GyroSensor()
 

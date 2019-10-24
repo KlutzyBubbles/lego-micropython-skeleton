@@ -15,7 +15,7 @@ class Port(Enum):
 class Direction(Enum):
 
     CLOCKWISE = 0
-    COUNTCLOCKWISE = 1
+    COUNTERCLOCKWISE = 1
 
 class Stop(Enum):
 
