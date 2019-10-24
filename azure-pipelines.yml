@@ -8,8 +8,8 @@ trigger:
 - dev
 
 variables:
-  Branch: '$(Release.Artifacts._build.SourceBranchName)'
-  BuildNumber: '$(Release.Artifacts._build.BuildNumber)'
+  Branch: '$(Build.SourceBranchName)'
+  BuildNumber: '$(Build.BuildNumber)'
   WorkingDirectory: '$(System.DefaultWorkingDirectory)/_build/build'
 
 jobs:
