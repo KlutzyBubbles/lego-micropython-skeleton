@@ -7,6 +7,11 @@ trigger:
 - master
 - dev
 
+variables:
+  Branch: '$(Release.Artifacts._build.SourceBranchName)'
+  BuildNumber: '$(Release.Artifacts._build.BuildNumber)'
+  WorkingDirectory: '$(System.DefaultWorkingDirectory)/_build/build'
+
 jobs:
 - job: Test
   pool:
@@ -71,3 +76,51 @@ jobs:
       PathtoPublish: '$(Build.ArtifactStagingDirectory)'
       ArtifactName: 'build'
       publishLocation: 'Container'
+
+- deployment: Distribute
+  pool:
+    vmImage: 'ubuntu-latest'
+  dependsOn: Test
+  strategy:
+    runOnce:
+      deploy:
+        steps:
+        - task: UsePythonVersion@0
+          displayName: 'Use Python 3.7'
+          inputs:
+            versionSpec: 3.7
+        - task: Bash@3
+          inputs:
+            targetType: 'inline'
+            workingDirectory: '$(WorkingDirectory)'
+            script: |
+              python -m pip install --upgrade pip
+              pip install -r requirements.txt
+          displayName: 'Install Pip & Requirements'
+        - task: Bash@3
+          inputs:
+            targetType: 'inline'
+            workingDirectory: '$(WorkingDirectory)'
+            script: |
+              pip install --user --upgrade setuptools wheel twine
+          displayName: 'Install Dist Packages'
+        - task: Bash@3
+          inputs:
+            targetType: 'inline'
+            workingDirectory: '$(WorkingDirectory)'
+            script: |
+              prefix=""
+              if [ "$BRANCH" == "dev" ]
+              then
+                prefix="dev"
+              fi
+              build_number=${BUILD_NUMBER//./}
+              export PACKAGE_BUILD=".${prefix}${build_number}"
+              python setup.py sdist bdist_wheel
+              python -m twine upload dist/* --skip-existing -u $PYPI_USERNAME -p $PYPI_PASSWORD
+          displayName: 'Package and build'
+          env:
+            BRANCH: $(Branch)
+            BUILD_NUMBER: $(BuildNumber)
+            PYPI_USERNAME: $(PYPI_USERNAME)
+            PYPI_PASSWORD: $(PYPI_PASSWORD)
