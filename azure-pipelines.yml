@@ -96,6 +96,7 @@ jobs:
             workingDirectory: '$(WorkingDirectory)'
             script: |
               echo $PWD
+              ls
               python -m pip install --upgrade pip
               pip install -r requirements.txt
           displayName: 'Install Pip & Requirements'
