@@ -71,11 +71,11 @@ jobs:
         LICENSE
       TargetFolder: '$(WorkingDirectory)'
     displayName: 'Copy requirements and setup'
-  - task: PublishBuildArtifacts@1
-    inputs:
-      PathtoPublish: '$(WorkingDirectory)'
-      ArtifactName: 'build'
-      publishLocation: 'Container'
+#  - task: PublishBuildArtifacts@1
+#    inputs:
+#      PathtoPublish: '$(WorkingDirectory)'
+#      ArtifactName: 'build'
+#      publishLocation: 'Container'
 
 - deployment: Distribute
   pool:
