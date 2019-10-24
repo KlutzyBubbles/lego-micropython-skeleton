@@ -80,7 +80,7 @@ jobs:
 - deployment: Distribute
   pool:
     vmImage: 'ubuntu-latest'
-  dependsOn: Test
+#  dependsOn: Test
   environment: 'skeleton-$(Branch)'
   strategy:
     runOnce:
@@ -93,7 +93,6 @@ jobs:
         - task: Bash@3
           inputs:
             targetType: 'inline'
-            workingDirectory: '$(WorkingDirectory)'
             script: |
               echo $PWD
               echo $(ls)
