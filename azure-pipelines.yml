@@ -10,7 +10,7 @@ trigger:
 variables:
   Branch: '$(Build.SourceBranchName)'
   BuildNumber: '$(Build.BuildNumber)'
-  WorkingDirectory: '$(System.DefaultWorkingDirectory)/_build/build'
+  WorkingDirectory: '$(Build.ArtifactStagingDirectory)'
 
 jobs:
 - job: Test
@@ -59,7 +59,7 @@ jobs:
       Contents: |
         *.py
         **\*.py
-      TargetFolder: '$(Build.ArtifactStagingDirectory)/pybricks'
+      TargetFolder: '$(WorkingDirectory)/pybricks'
     displayName: 'Copy pybricks source'
   - task: CopyFiles@2
     inputs:
@@ -69,18 +69,18 @@ jobs:
         setup.py
         README.md
         LICENSE
-      TargetFolder: '$(Build.ArtifactStagingDirectory)'
+      TargetFolder: '$(WorkingDirectory)'
     displayName: 'Copy requirements and setup'
   - task: PublishBuildArtifacts@1
     inputs:
-      PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+      PathtoPublish: '$(WorkingDirectory)'
       ArtifactName: 'build'
       publishLocation: 'Container'
 
 - deployment: Distribute
   pool:
     vmImage: 'ubuntu-latest'
-  dependsOn: Test
+  dependsOn: Build
   environment: 'skeleton-$(Branch)'
   strategy:
     runOnce:
