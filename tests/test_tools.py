@@ -1,7 +1,7 @@
 import pytest
 from sys import stdout
 
-from pybricks.tools import print, wait, StopWatch
+from pybricks.tools import (print, wait, StopWatch)
 
 def test_print():
     print(1, sep=' ', end='\n', file=stdout, flush=False)
