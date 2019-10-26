@@ -8,6 +8,7 @@ trigger:
     - tests/*
     - pybricks/*
     - setup.py
+    - azure-pipelines.yml
     exclude:
     - .*
     - README.md
