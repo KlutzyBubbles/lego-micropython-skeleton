@@ -23,8 +23,8 @@ master_doc = 'index'
 
 project = u'Lego Micropython'
 
-version = u'test'
-release = u'test'
+version = os.environ['VERSION']
+release = os.environ['PACKAGE_VERSION']
 
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 

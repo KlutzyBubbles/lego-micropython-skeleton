@@ -75,6 +75,7 @@ jobs:
       Contents: |
         requirements.txt
         setup.py
+        version.py
         README.md
         LICENSE
       TargetFolder: '$(Build.ArtifactStagingDirectory)'
@@ -114,6 +115,13 @@ jobs:
       SourceFolder: '$(Build.Repository.LocalPath)/template'
       TargetFolder: '$(Build.ArtifactStagingDirectory)/template'
     displayName: 'Copy templates'
+  - task: CopyFiles@2
+    inputs:
+      SourceFolder: '$(Build.Repository.LocalPath)'
+      Contents: |
+        version.py
+      TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    displayName: 'Copy version'
   - task: PublishBuildArtifacts@1
     inputs:
       PathtoPublish: '$(Build.ArtifactStagingDirectory)'
@@ -160,7 +168,6 @@ jobs:
             targetType: 'inline'
             workingDirectory: '$(System.ArtifactsDirectory)/build'
             script: |
-              echo $PWD
               prefix=""
               if [ "$BRANCH" == "dev" ]
               then
@@ -168,6 +175,7 @@ jobs:
               fi
               build_number=${BUILD_NUMBER//./}
               export PACKAGE_BUILD=".${prefix}${build_number}"
+              python version.py
               python setup.py sdist bdist_wheel
               python -m twine upload dist/* --skip-existing -u $PYPI_USERNAME -p $PYPI_PASSWORD
           displayName: 'Package and build'
@@ -197,6 +205,17 @@ jobs:
           displayName: 'Use Python 3.7'
           inputs:
             versionSpec: 3.7
+        - task: Bash@3
+          inputs:
+            targetType: 'inline'
+            workingDirectory: '$(System.ArtifactsDirectory)/build-docs'
+            script: |
+              build_number=${BUILD_NUMBER//./}
+              export PACKAGE_BUILD=".${build_number}"
+              python version.py
+          displayName: 'Set Version'
+          env:
+            BUILD_NUMBER: $(BuildNumber)
         - task: Bash@3
           inputs:
             targetType: 'inline'
