@@ -204,7 +204,7 @@ jobs:
             workingDirectory: '$(System.ArtifactsDirectory)/build-docs'
             script: |
               sudo pip install -U Sphinx
-              sudo sphinx-build docs .
+              sphinx-build docs .
           displayName: 'Build Docs'
         - task: Bash@3
           inputs:
