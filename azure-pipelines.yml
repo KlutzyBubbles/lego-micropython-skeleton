@@ -202,7 +202,7 @@ jobs:
             workingDirectory: '$(System.ArtifactsDirectory)/build-docs'
             script: |
               python -m pip install --upgrade pip
-              sudo pip install -U Sphinx
+              pip install -U Sphinx
               sphinx-build docs .
           displayName: 'Build Docs'
         - task: Bash@3
