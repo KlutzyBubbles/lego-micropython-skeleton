@@ -219,6 +219,19 @@ jobs:
             knownHostsEntry: github.com
             sshPublicKey: $(PublicKey)
             sshKeySecureFile: id_rsa_github
+          displayName: 'Install SSH Key'
+        - task: Bash@3
+          inputs:
+            targetType: 'inline'
+            workingDirectory: '$(System.ArtifactsDirectory)/build-docs'
+            script: |
+              cat <<\EOT >~/.ssh/config
+              Host github.com-deploy
+                  HostName github.com
+                  User git
+                  IdentityFile ~/.ssh/id_rsa_github
+              EOT
+          displayName: 'Add github host config'
         - task: Bash@3
           inputs:
             targetType: 'inline'
@@ -230,6 +243,6 @@ jobs:
               git checkout -b gh-pages
               git add .
               git commit -m "Build for $(BuildNumber)"
-              git remote add origin git@github.com:KlutzyBubbles/lego-micropython-skeleton.git
+              git remote add origin git@github.com-deploy:KlutzyBubbles/lego-micropython-skeleton.git
               git push origin gh-pages
           displayName: 'Push to remote'
