@@ -212,10 +212,11 @@ jobs:
             workingDirectory: '$(System.ArtifactsDirectory)/build-docs'
             script: |
               git config --global user.name "Azure Pipeline"
+              git config --global user.email "pipeline@azure.com"
               git init
               git checkout -b gh-pages
               git add .
               git commit -m "Build for $(BuildNumber)"
-              git remote add origin https://github.com/KlutzyBubbles/lego-micropython-skeleton.git
+              git remote add origin git@github.com:KlutzyBubbles/lego-micropython-skeleton.git
               git push origin gh-pages
           displayName: 'Push to remote'
