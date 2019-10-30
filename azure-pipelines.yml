@@ -143,8 +143,6 @@ jobs:
             targetType: 'inline'
             workingDirectory: '$(System.ArtifactsDirectory)/build'
             script: |
-              echo $PWD
-              echo $(ls)
               python -m pip install --upgrade pip
               pip install -r requirements.txt
           displayName: 'Install Pip & Requirements'
@@ -203,6 +201,7 @@ jobs:
             targetType: 'inline'
             workingDirectory: '$(System.ArtifactsDirectory)/build-docs'
             script: |
+              python -m pip install --upgrade pip
               sudo pip install -U Sphinx
               sphinx-build docs .
           displayName: 'Build Docs'
