@@ -84,7 +84,7 @@ jobs:
       ArtifactName: 'build'
       publishLocation: 'Container'
 
-- job: BuildDocs
+- job: BuildDocFiles
   pool:
     vmImage: 'ubuntu-latest'
   dependsOn: Test
