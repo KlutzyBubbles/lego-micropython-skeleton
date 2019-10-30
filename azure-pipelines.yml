@@ -185,7 +185,7 @@ jobs:
 - deployment: BuildDocs
   pool:
     vmImage: 'ubuntu-latest'
-  dependsOn: BuildDocs
+  dependsOn: BuildDocFiles
   condition: and(succeeded(), eq(variables['Build.SourceBranchName'], 'dev'))
   environment: 'skeleton-docs-dev'
   strategy:
