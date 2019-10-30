@@ -6,6 +6,10 @@ Dev Build Status: [![Build Status](https://dev.azure.com/leetzilantonisibmcom/Le
 
 NOTE: We have recently dropped support for python 2.7, please make sure you are developing on a machine with python >3.4
 
+## Documentation
+
+We have recently merged out previous repo `lego-micropython-docs` with this repo to simplify the updating process. You can find the docs hosted at <https://klutzybubbles.github.io/lego-micropython-skeleton/>
+
 ## About
 
 Skeleton to help with linting programs using the MicroPython functions built for Lego EV3 Mindstorms
