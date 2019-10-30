@@ -75,7 +75,7 @@ jobs:
       Contents: |
         requirements.txt
         setup.py
-        version.py
+        version.txt
         README.md
         LICENSE
       TargetFolder: '$(Build.ArtifactStagingDirectory)'
@@ -119,7 +119,7 @@ jobs:
     inputs:
       SourceFolder: '$(Build.Repository.LocalPath)'
       Contents: |
-        version.py
+        version.txt
       TargetFolder: '$(Build.ArtifactStagingDirectory)'
     displayName: 'Copy version'
   - task: PublishBuildArtifacts@1
@@ -175,7 +175,8 @@ jobs:
               fi
               build_number=${BUILD_NUMBER//./}
               export PACKAGE_BUILD=".${prefix}${build_number}"
-              python version.py
+              export VERSION="$(<version.txt)"
+              export PACKAGE_VERSION="${VERSION}${PACKAGE_BUILD}"
               python setup.py sdist bdist_wheel
               python -m twine upload dist/* --skip-existing -u $PYPI_USERNAME -p $PYPI_PASSWORD
           displayName: 'Package and build'
@@ -212,7 +213,8 @@ jobs:
             script: |
               build_number=${BUILD_NUMBER//./}
               export PACKAGE_BUILD=".${build_number}"
-              python version.py
+              export VERSION="$(<version.txt)"
+              export PACKAGE_VERSION="${VERSION}${PACKAGE_BUILD}"
           displayName: 'Set Version'
           env:
             BUILD_NUMBER: $(BuildNumber)
