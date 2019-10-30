@@ -211,8 +211,8 @@ jobs:
             targetType: 'inline'
             workingDirectory: '$(System.ArtifactsDirectory)/build'
             script: |
-              apt-get install python3-sphinx
-              sphinx-build docs .
+              sudo apt-get install python3-sphinx
+              sudo sphinx-build docs .
           displayName: 'Build Docs'
         - task: Bash@3
           inputs:
