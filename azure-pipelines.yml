@@ -16,6 +16,7 @@ pr:
 
 variables:
 - group: pypi-credentials
+- group: github-ssh-keys
 - name: Branch
   value: '$(Build.SourceBranchName)'
 - name: BuildNumber
@@ -206,6 +207,18 @@ jobs:
               pip install sphinx_rtd_theme
               sphinx-build docs .
           displayName: 'Build Docs'
+        - task: Bash@3
+          inputs:
+            targetType: 'inline'
+            workingDirectory: '$(System.ArtifactsDirectory)/build-docs'
+            script: |
+              ssh-keyscan github.com >> ~/.ssh/known_hosts
+          displayName: 'Add github host'
+        - task: InstallSSHKey@0
+          inputs:
+            knownHostsEntry: github.com
+            sshPublicKey: $(PublicKey)
+            sshKeySecureFile: id_rsa_github
         - task: Bash@3
           inputs:
             targetType: 'inline'
