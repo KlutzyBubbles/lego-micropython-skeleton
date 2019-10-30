@@ -203,7 +203,7 @@ jobs:
             targetType: 'inline'
             workingDirectory: '$(System.ArtifactsDirectory)/build-docs'
             script: |
-              sudo apt-get install python-sphinx
+              sudo pip install -U Sphinx
               sudo sphinx-build docs .
           displayName: 'Build Docs'
         - task: Bash@3
