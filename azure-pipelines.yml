@@ -209,6 +209,17 @@ jobs:
         - task: Bash@3
           inputs:
             targetType: 'inline'
+            workingDirectory: '$(System.ArtifactsDirectory)'
+            script: |
+              ls
+              cd build
+              ls
+              cd ../build-docs
+              ls
+          displayName: 'List the things'
+        - task: Bash@3
+          inputs:
+            targetType: 'inline'
             workingDirectory: '$(System.ArtifactsDirectory)/build-docs'
             script: |
               sudo apt-get install python3-sphinx
