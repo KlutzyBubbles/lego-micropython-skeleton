@@ -182,7 +182,7 @@ jobs:
             PYPI_USERNAME: $(PYPI_USERNAME)
             PYPI_PASSWORD: $(PYPI_PASSWORD)
 
-- deployment: Build Docs
+- deployment: BuildDocs
   pool:
     vmImage: 'ubuntu-latest'
   dependsOn: BuildDocs
