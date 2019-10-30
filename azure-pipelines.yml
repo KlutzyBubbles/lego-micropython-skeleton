@@ -84,6 +84,41 @@ jobs:
       ArtifactName: 'build'
       publishLocation: 'Container'
 
+- job: BuildDocs
+  pool:
+    vmImage: 'ubuntu-latest'
+  dependsOn: Test
+  condition: and(succeeded(), eq(variables['Build.SourceBranchName'], 'dev'))
+  steps:
+  - task: CopyFiles@2
+    inputs:
+      SourceFolder: '$(Build.Repository.LocalPath)/pybricks'
+      Contents: |
+        *.py
+        **\*.py
+      TargetFolder: '$(Build.ArtifactStagingDirectory)/pybricks'
+    displayName: 'Copy pybricks source'
+  - task: CopyFiles@2
+    inputs:
+      SourceFolder: '$(Build.Repository.LocalPath)/docs'
+      TargetFolder: '$(Build.ArtifactStagingDirectory)/docs'
+    displayName: 'Copy docs'
+  - task: CopyFiles@2
+    inputs:
+      SourceFolder: '$(Build.Repository.LocalPath)/examples'
+      TargetFolder: '$(Build.ArtifactStagingDirectory)/examples'
+    displayName: 'Copy examples'
+  - task: CopyFiles@2
+    inputs:
+      SourceFolder: '$(Build.Repository.LocalPath)/template'
+      TargetFolder: '$(Build.ArtifactStagingDirectory)/template'
+    displayName: 'Copy templates'
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+      ArtifactName: 'build-docs'
+      publishLocation: 'Container'
+
 - deployment: Distribute
   pool:
     vmImage: 'ubuntu-latest'
@@ -95,6 +130,7 @@ jobs:
         steps:
         - task: DownloadBuildArtifacts@0
           inputs:
+            artifactName: 'build'
             buildType: 'specific'
             project: 'e89ff3b5-d86a-4bb3-bcef-40f7255e5d10'
             pipeline: '3'
@@ -145,3 +181,49 @@ jobs:
             BUILD_NUMBER: $(BuildNumber)
             PYPI_USERNAME: $(PYPI_USERNAME)
             PYPI_PASSWORD: $(PYPI_PASSWORD)
+
+- deployment: Build Docs
+  pool:
+    vmImage: 'ubuntu-latest'
+  dependsOn: BuildDocs
+  condition: and(succeeded(), eq(variables['Build.SourceBranchName'], 'dev'))
+  environment: 'skeleton-docs-dev'
+  strategy:
+    runOnce:
+      deploy:
+        steps:
+        - task: DownloadBuildArtifacts@0
+          inputs:
+            artifactName: 'build-docs'
+            buildType: 'specific'
+            project: 'e89ff3b5-d86a-4bb3-bcef-40f7255e5d10'
+            pipeline: '3'
+            buildVersionToDownload: 'latestFromBranch'
+            branchName: '$(Build.SourceBranch)'
+            downloadType: 'specific'
+            downloadPath: '$(System.ArtifactsDirectory)'
+        - task: UsePythonVersion@0
+          displayName: 'Use Python 3.7'
+          inputs:
+            versionSpec: 3.7
+        - task: Bash@3
+          inputs:
+            targetType: 'inline'
+            workingDirectory: '$(System.ArtifactsDirectory)/build'
+            script: |
+              apt-get install python3-sphinx
+              sphinx-build docs .
+          displayName: 'Build Docs'
+        - task: Bash@3
+          inputs:
+            targetType: 'inline'
+            workingDirectory: '$(System.ArtifactsDirectory)/build'
+            script: |
+              git config --global user.name "Azure Pipeline"
+              git init
+              git checkout -b gh-pages
+              git add .
+              git commit -m "Build for $(BuildNumber)"
+              git remote add origin https://github.com/KlutzyBubbles/lego-micropython-skeleton.git
+              git push origin gh-pages
+          displayName: 'Push to remote'
