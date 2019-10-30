@@ -195,12 +195,8 @@ jobs:
         - task: DownloadBuildArtifacts@0
           inputs:
             artifactName: 'build-docs'
-            buildType: 'specific'
-            project: 'e89ff3b5-d86a-4bb3-bcef-40f7255e5d10'
-            pipeline: '3'
-            buildVersionToDownload: 'latestFromBranch'
-            branchName: '$(Build.SourceBranch)'
-            downloadType: 'specific'
+            buildType: 'current'
+            downloadType: 'single'
             downloadPath: '$(System.ArtifactsDirectory)'
         - task: UsePythonVersion@0
           displayName: 'Use Python 3.7'
@@ -212,9 +208,13 @@ jobs:
             workingDirectory: '$(System.ArtifactsDirectory)'
             script: |
               ls
+              echo BREAK
               cd build
+              echo BREAK1
               ls
+              echo BREAK2
               cd ../build-docs
+              echo BREAK3
               ls
           displayName: 'List the things'
         - task: Bash@3
