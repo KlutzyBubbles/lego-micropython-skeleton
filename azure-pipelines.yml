@@ -215,19 +215,13 @@ jobs:
               export PACKAGE_BUILD=".${build_number}"
               export VERSION="$(<version.txt)"
               export PACKAGE_VERSION="${VERSION}${PACKAGE_BUILD}"
-          displayName: 'Set Version'
-          env:
-            BUILD_NUMBER: $(BuildNumber)
-        - task: Bash@3
-          inputs:
-            targetType: 'inline'
-            workingDirectory: '$(System.ArtifactsDirectory)/build-docs'
-            script: |
               python -m pip install --upgrade pip
               pip install -U Sphinx
               pip install sphinx_rtd_theme
               sphinx-build docs .
           displayName: 'Build Docs'
+          env:
+            BUILD_NUMBER: $(BuildNumber)
         - task: Bash@3
           inputs:
             targetType: 'inline'
