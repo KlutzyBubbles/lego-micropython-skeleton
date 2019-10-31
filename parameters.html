@@ -1,0 +1,1333 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>parameters – Parameters and Constants &mdash; Lego Micropython Docs</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="tools – Timing and Datalogging" href="tools.html" />
+    <link rel="prev" title="ev3devices – EV3 Motors and Sensors" href="ev3devices.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Lego Micropython
+          
+
+          
+            
+            <img src="_static/lego-education-logo-small.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="startinstall.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="startrun.html">Creating and running programs</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Pybricks Modules</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ev3brick.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ev3brick</span></code> – The EV3 Programmable Brick</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ev3devices.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ev3devices</span></code> – EV3 Motors and Sensors</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">parameters</span></code> – Parameters and Constants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tools</span></code> – Timing and Datalogging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="robotics.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">robotics</span></code> – Robotics module</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Engineering Essentials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="signaltypes.html">Signals and Units</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Demo Programs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="examples/robot_educator.html">Robot Educator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/color_sorter.html">Color Sorter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/robot_arm_h25.html">Robot Arm H25</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Lego Micropython</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">parameters</span></code> – Parameters and Constants</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/parameters.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="parameters-parameters-and-constants">
+<h1><a class="reference internal" href="#module-parameters" title="parameters"><code class="xref py py-mod docutils literal notranslate"><span class="pre">parameters</span></code></a> – Parameters and Constants<a class="headerlink" href="#parameters-parameters-and-constants" title="Permalink to this headline">¶</a></h1>
+<p>Constant parameters/arguments for the Pybricks API.</p>
+<span class="target" id="module-parameters"></span><dl class="class">
+<dt id="parameters.Port">
+<em class="property">class </em><code class="sig-prename descclassname">parameters.</code><code class="sig-name descname">Port</code><a class="headerlink" href="#parameters.Port" title="Permalink to this definition">¶</a></dt>
+<dd><p>Port on the EV3 Programmable Brick.</p>
+<p>Motor Ports:</p>
+<dl class="attribute">
+<dt id="parameters.Port.A">
+<code class="sig-name descname">A</code><a class="headerlink" href="#parameters.Port.A" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.Port.B">
+<code class="sig-name descname">B</code><a class="headerlink" href="#parameters.Port.B" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.Port.C">
+<code class="sig-name descname">C</code><a class="headerlink" href="#parameters.Port.C" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.Port.D">
+<code class="sig-name descname">D</code><a class="headerlink" href="#parameters.Port.D" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>Sensor Ports:</p>
+<dl class="attribute">
+<dt id="parameters.Port.S1">
+<code class="sig-name descname">S1</code><a class="headerlink" href="#parameters.Port.S1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.Port.S2">
+<code class="sig-name descname">S2</code><a class="headerlink" href="#parameters.Port.S2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.Port.S3">
+<code class="sig-name descname">S3</code><a class="headerlink" href="#parameters.Port.S3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.Port.S4">
+<code class="sig-name descname">S4</code><a class="headerlink" href="#parameters.Port.S4" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="parameters.Direction">
+<em class="property">class </em><code class="sig-prename descclassname">parameters.</code><code class="sig-name descname">Direction</code><a class="headerlink" href="#parameters.Direction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rotational direction for positive speed values: clockwise or counterclockwise.</p>
+<dl class="attribute">
+<dt id="parameters.Direction.CLOCKWISE">
+<code class="sig-name descname">CLOCKWISE</code><a class="headerlink" href="#parameters.Direction.CLOCKWISE" title="Permalink to this definition">¶</a></dt>
+<dd><p>A positive speed value should make the motor move clockwise.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.Direction.COUNTERCLOCKWISE">
+<code class="sig-name descname">COUNTERCLOCKWISE</code><a class="headerlink" href="#parameters.Direction.COUNTERCLOCKWISE" title="Permalink to this definition">¶</a></dt>
+<dd><p>A positive speed value should make the motor move counterclockwise.</p>
+</dd></dl>
+
+<p>For all motors, this is defined when looking at the shaft, just like looking at a clock.</p>
+<p>For NXT or EV3 motors, make sure to look at the motor with the red/orange shaft to the lower right.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 45%" />
+<col style="width: 28%" />
+<col style="width: 28%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Positive Speed</p></th>
+<th class="head"><p>Negative Speed</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Direction.CLOCKWISE</p></td>
+<td><p>clockwise</p></td>
+<td><p>counterclockwise</p></td>
+</tr>
+<tr class="row-odd"><td><p>Direction.COUNTERCLOCKWISE</p></td>
+<td><p>counterclockwise</p></td>
+<td><p>clockwise</p></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Medium EV3 Motor:
+
+
+    counterclockwise          clockwise
+|        ____                _____
+|       /                         \
+|      /       _____________       \
+|     /      /              \       \
+|    |      |        _       |       |
+|    |      |     __| |__    |       |
+|    v      |    |__ o __|   |       v
+|           |       |_|      |
+|           |                |
+|            \______________/
+
+
+Large EV3 Motor:
+
+    __________
+    /         \       ___    ___
+    |          \     /          \
+    |            ---/------      \
+    counterclockwise|    __\__    |  clockwise
+    \__________     v  /      \   v
+                -------|  +   |
+                        \_____/
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="parameters.Stop">
+<em class="property">class </em><code class="sig-prename descclassname">parameters.</code><code class="sig-name descname">Stop</code><a class="headerlink" href="#parameters.Stop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Action after the motor stops: coast, brake, or hold.</p>
+<dl class="attribute">
+<dt id="parameters.Stop.COAST">
+<code class="sig-name descname">COAST</code><a class="headerlink" href="#parameters.Stop.COAST" title="Permalink to this definition">¶</a></dt>
+<dd><p>Let the motor move freely.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.Stop.BRAKE">
+<code class="sig-name descname">BRAKE</code><a class="headerlink" href="#parameters.Stop.BRAKE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Passively resist small external forces.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.Stop.HOLD">
+<code class="sig-name descname">HOLD</code><a class="headerlink" href="#parameters.Stop.HOLD" title="Permalink to this definition">¶</a></dt>
+<dd><p>Keep controlling the motor to hold it at the commanded angle. This is only available on motors with encoders.</p>
+</dd></dl>
+
+<p>The stop type defines the resistance to motion after coming to a standstill:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 31%" />
+<col style="width: 19%" />
+<col style="width: 49%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Resistance</p></th>
+<th class="head"><p>Physical meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Stop.COAST</p></td>
+<td><p>low</p></td>
+<td><p>Friction</p></td>
+</tr>
+<tr class="row-odd"><td><p>Stop.BRAKE</p></td>
+<td><p>medium</p></td>
+<td><p>Friction + Torque opposite to motion</p></td>
+</tr>
+<tr class="row-even"><td><p>Stop.HOLD</p></td>
+<td><p>high</p></td>
+<td><p>Friction + Torque to hold commanded angle</p></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="parameters.Color">
+<em class="property">class </em><code class="sig-prename descclassname">parameters.</code><code class="sig-name descname">Color</code><a class="headerlink" href="#parameters.Color" title="Permalink to this definition">¶</a></dt>
+<dd><p>Light or surface color.</p>
+<dl class="attribute">
+<dt id="parameters.Color.BLACK">
+<code class="sig-name descname">BLACK</code><a class="headerlink" href="#parameters.Color.BLACK" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.Color.BLUE">
+<code class="sig-name descname">BLUE</code><a class="headerlink" href="#parameters.Color.BLUE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.Color.GREEN">
+<code class="sig-name descname">GREEN</code><a class="headerlink" href="#parameters.Color.GREEN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.Color.YELLOW">
+<code class="sig-name descname">YELLOW</code><a class="headerlink" href="#parameters.Color.YELLOW" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.Color.RED">
+<code class="sig-name descname">RED</code><a class="headerlink" href="#parameters.Color.RED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.Color.WHITE">
+<code class="sig-name descname">WHITE</code><a class="headerlink" href="#parameters.Color.WHITE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.Color.BROWN">
+<code class="sig-name descname">BROWN</code><a class="headerlink" href="#parameters.Color.BROWN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.Color.ORANGE">
+<code class="sig-name descname">ORANGE</code><a class="headerlink" href="#parameters.Color.ORANGE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.Color.PURPLE">
+<code class="sig-name descname">PURPLE</code><a class="headerlink" href="#parameters.Color.PURPLE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="parameters.Button">
+<em class="property">class </em><code class="sig-prename descclassname">parameters.</code><code class="sig-name descname">Button</code><a class="headerlink" href="#parameters.Button" title="Permalink to this definition">¶</a></dt>
+<dd><p>Buttons on a brick or remote.</p>
+<dl class="attribute">
+<dt id="parameters.Button.LEFT_DOWN">
+<code class="sig-name descname">LEFT_DOWN</code><a class="headerlink" href="#parameters.Button.LEFT_DOWN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.Button.DOWN">
+<code class="sig-name descname">DOWN</code><a class="headerlink" href="#parameters.Button.DOWN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.Button.RIGHT_DOWN">
+<code class="sig-name descname">RIGHT_DOWN</code><a class="headerlink" href="#parameters.Button.RIGHT_DOWN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.Button.LEFT">
+<code class="sig-name descname">LEFT</code><a class="headerlink" href="#parameters.Button.LEFT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.Button.CENTER">
+<code class="sig-name descname">CENTER</code><a class="headerlink" href="#parameters.Button.CENTER" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.Button.RIGHT">
+<code class="sig-name descname">RIGHT</code><a class="headerlink" href="#parameters.Button.RIGHT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.Button.LEFT_UP">
+<code class="sig-name descname">LEFT_UP</code><a class="headerlink" href="#parameters.Button.LEFT_UP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.Button.UP">
+<code class="sig-name descname">UP</code><a class="headerlink" href="#parameters.Button.UP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.Button.BEACON">
+<code class="sig-name descname">BEACON</code><a class="headerlink" href="#parameters.Button.BEACON" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.Button.RIGHT_UP">
+<code class="sig-name descname">RIGHT_UP</code><a class="headerlink" href="#parameters.Button.RIGHT_UP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>LEFT_UP</p></td>
+<td><p>UP/BEACON</p></td>
+<td><p>RIGHT_UP</p></td>
+</tr>
+<tr class="row-even"><td><p>LEFT</p></td>
+<td><p>CENTER</p></td>
+<td><p>RIGHT</p></td>
+</tr>
+<tr class="row-odd"><td><p>LEFT_DOWN</p></td>
+<td><p>DOWN</p></td>
+<td><p>RIGHT_DOWN</p></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="parameters.Align">
+<em class="property">class </em><code class="sig-prename descclassname">parameters.</code><code class="sig-name descname">Align</code><a class="headerlink" href="#parameters.Align" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alignment of an image on the display.</p>
+<dl class="attribute">
+<dt id="parameters.Align.BOTTOM_LEFT">
+<code class="sig-name descname">BOTTOM_LEFT</code><a class="headerlink" href="#parameters.Align.BOTTOM_LEFT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.Align.BOTTOM">
+<code class="sig-name descname">BOTTOM</code><a class="headerlink" href="#parameters.Align.BOTTOM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.Align.BOTTOM_RIGHT">
+<code class="sig-name descname">BOTTOM_RIGHT</code><a class="headerlink" href="#parameters.Align.BOTTOM_RIGHT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.Align.LEFT">
+<code class="sig-name descname">LEFT</code><a class="headerlink" href="#parameters.Align.LEFT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.Align.CENTER">
+<code class="sig-name descname">CENTER</code><a class="headerlink" href="#parameters.Align.CENTER" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.Align.RIGHT">
+<code class="sig-name descname">RIGHT</code><a class="headerlink" href="#parameters.Align.RIGHT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.Align.TOP_LEFT">
+<code class="sig-name descname">TOP_LEFT</code><a class="headerlink" href="#parameters.Align.TOP_LEFT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.Align.TOP">
+<code class="sig-name descname">TOP</code><a class="headerlink" href="#parameters.Align.TOP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.Align.TOP_RIGHT">
+<code class="sig-name descname">TOP_RIGHT</code><a class="headerlink" href="#parameters.Align.TOP_RIGHT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>TOP_LEFT</p></td>
+<td><p>TOP</p></td>
+<td><p>TOP_RIGHT</p></td>
+</tr>
+<tr class="row-even"><td><p>LEFT</p></td>
+<td><p>CENTER</p></td>
+<td><p>RIGHT</p></td>
+</tr>
+<tr class="row-odd"><td><p>BOTTOM_LEFT</p></td>
+<td><p>BOTTOM</p></td>
+<td><p>BOTTOM_RIGHT</p></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="parameters.ImageFile">
+<em class="property">class </em><code class="sig-prename descclassname">parameters.</code><code class="sig-name descname">ImageFile</code><a class="headerlink" href="#parameters.ImageFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Paths to standard EV3 images.</p>
+<p>Information</p>
+<dl class="attribute">
+<dt id="parameters.ImageFile.RIGHT">
+<code class="sig-name descname">RIGHT</code><a class="headerlink" href="#parameters.ImageFile.RIGHT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.ImageFile.FORWARD">
+<code class="sig-name descname">FORWARD</code><a class="headerlink" href="#parameters.ImageFile.FORWARD" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.ImageFile.ACCEPT">
+<code class="sig-name descname">ACCEPT</code><a class="headerlink" href="#parameters.ImageFile.ACCEPT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.ImageFile.QUESTION_MARK">
+<code class="sig-name descname">QUESTION_MARK</code><a class="headerlink" href="#parameters.ImageFile.QUESTION_MARK" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.ImageFile.STOP_1">
+<code class="sig-name descname">STOP_1</code><a class="headerlink" href="#parameters.ImageFile.STOP_1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.ImageFile.LEFT">
+<code class="sig-name descname">LEFT</code><a class="headerlink" href="#parameters.ImageFile.LEFT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.ImageFile.DECLINE">
+<code class="sig-name descname">DECLINE</code><a class="headerlink" href="#parameters.ImageFile.DECLINE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.ImageFile.THUMBS_DOWN">
+<code class="sig-name descname">THUMBS_DOWN</code><a class="headerlink" href="#parameters.ImageFile.THUMBS_DOWN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.ImageFile.BACKWARD">
+<code class="sig-name descname">BACKWARD</code><a class="headerlink" href="#parameters.ImageFile.BACKWARD" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.ImageFile.NO_GO">
+<code class="sig-name descname">NO_GO</code><a class="headerlink" href="#parameters.ImageFile.NO_GO" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.ImageFile.WARNING">
+<code class="sig-name descname">WARNING</code><a class="headerlink" href="#parameters.ImageFile.WARNING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.ImageFile.STOP_2">
+<code class="sig-name descname">STOP_2</code><a class="headerlink" href="#parameters.ImageFile.STOP_2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.ImageFile.THUMBS_UP">
+<code class="sig-name descname">THUMBS_UP</code><a class="headerlink" href="#parameters.ImageFile.THUMBS_UP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>LEGO</p>
+<dl class="attribute">
+<dt id="parameters.ImageFile.EV3">
+<code class="sig-name descname">EV3</code><a class="headerlink" href="#parameters.ImageFile.EV3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.ImageFile.EV3_ICON">
+<code class="sig-name descname">EV3_ICON</code><a class="headerlink" href="#parameters.ImageFile.EV3_ICON" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>Objects</p>
+<dl class="attribute">
+<dt id="parameters.ImageFile.TARGET">
+<code class="sig-name descname">TARGET</code><a class="headerlink" href="#parameters.ImageFile.TARGET" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>Eyes</p>
+<dl class="attribute">
+<dt id="parameters.ImageFile.BOTTOM_RIGHT">
+<code class="sig-name descname">BOTTOM_RIGHT</code><a class="headerlink" href="#parameters.ImageFile.BOTTOM_RIGHT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.ImageFile.BOTTOM_LEFT">
+<code class="sig-name descname">BOTTOM_LEFT</code><a class="headerlink" href="#parameters.ImageFile.BOTTOM_LEFT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.ImageFile.EVIL">
+<code class="sig-name descname">EVIL</code><a class="headerlink" href="#parameters.ImageFile.EVIL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.ImageFile.CRAZY_2">
+<code class="sig-name descname">CRAZY_2</code><a class="headerlink" href="#parameters.ImageFile.CRAZY_2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.ImageFile.KNOCKED_OUT">
+<code class="sig-name descname">KNOCKED_OUT</code><a class="headerlink" href="#parameters.ImageFile.KNOCKED_OUT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.ImageFile.PINCHED_RIGHT">
+<code class="sig-name descname">PINCHED_RIGHT</code><a class="headerlink" href="#parameters.ImageFile.PINCHED_RIGHT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.ImageFile.WINKING">
+<code class="sig-name descname">WINKING</code><a class="headerlink" href="#parameters.ImageFile.WINKING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.ImageFile.DIZZY">
+<code class="sig-name descname">DIZZY</code><a class="headerlink" href="#parameters.ImageFile.DIZZY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.ImageFile.DOWN">
+<code class="sig-name descname">DOWN</code><a class="headerlink" href="#parameters.ImageFile.DOWN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.ImageFile.TIRED_MIDDLE">
+<code class="sig-name descname">TIRED_MIDDLE</code><a class="headerlink" href="#parameters.ImageFile.TIRED_MIDDLE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.ImageFile.MIDDLE_RIGHT">
+<code class="sig-name descname">MIDDLE_RIGHT</code><a class="headerlink" href="#parameters.ImageFile.MIDDLE_RIGHT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.ImageFile.SLEEPING">
+<code class="sig-name descname">SLEEPING</code><a class="headerlink" href="#parameters.ImageFile.SLEEPING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.ImageFile.MIDDLE_LEFT">
+<code class="sig-name descname">MIDDLE_LEFT</code><a class="headerlink" href="#parameters.ImageFile.MIDDLE_LEFT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.ImageFile.TIRED_RIGHT">
+<code class="sig-name descname">TIRED_RIGHT</code><a class="headerlink" href="#parameters.ImageFile.TIRED_RIGHT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.ImageFile.PINCHED_LEFT">
+<code class="sig-name descname">PINCHED_LEFT</code><a class="headerlink" href="#parameters.ImageFile.PINCHED_LEFT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.ImageFile.PINCHED_MIDDLE">
+<code class="sig-name descname">PINCHED_MIDDLE</code><a class="headerlink" href="#parameters.ImageFile.PINCHED_MIDDLE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.ImageFile.CRAZY_1">
+<code class="sig-name descname">CRAZY_1</code><a class="headerlink" href="#parameters.ImageFile.CRAZY_1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.ImageFile.NEUTRAL">
+<code class="sig-name descname">NEUTRAL</code><a class="headerlink" href="#parameters.ImageFile.NEUTRAL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.ImageFile.AWAKE">
+<code class="sig-name descname">AWAKE</code><a class="headerlink" href="#parameters.ImageFile.AWAKE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.ImageFile.UP">
+<code class="sig-name descname">UP</code><a class="headerlink" href="#parameters.ImageFile.UP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.ImageFile.TIRED_LEFT">
+<code class="sig-name descname">TIRED_LEFT</code><a class="headerlink" href="#parameters.ImageFile.TIRED_LEFT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.ImageFile.ANGRY">
+<code class="sig-name descname">ANGRY</code><a class="headerlink" href="#parameters.ImageFile.ANGRY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="parameters.SoundFile">
+<em class="property">class </em><code class="sig-prename descclassname">parameters.</code><code class="sig-name descname">SoundFile</code><a class="headerlink" href="#parameters.SoundFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Paths to standard EV3 sounds.</p>
+<p>Expressions</p>
+<dl class="attribute">
+<dt id="parameters.SoundFile.SHOUTING">
+<code class="sig-name descname">SHOUTING</code><a class="headerlink" href="#parameters.SoundFile.SHOUTING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.CHEERING">
+<code class="sig-name descname">CHEERING</code><a class="headerlink" href="#parameters.SoundFile.CHEERING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.CRYING">
+<code class="sig-name descname">CRYING</code><a class="headerlink" href="#parameters.SoundFile.CRYING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.OUCH">
+<code class="sig-name descname">OUCH</code><a class="headerlink" href="#parameters.SoundFile.OUCH" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.LAUGHING_2">
+<code class="sig-name descname">LAUGHING_2</code><a class="headerlink" href="#parameters.SoundFile.LAUGHING_2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.SNEEZING">
+<code class="sig-name descname">SNEEZING</code><a class="headerlink" href="#parameters.SoundFile.SNEEZING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.SMACK">
+<code class="sig-name descname">SMACK</code><a class="headerlink" href="#parameters.SoundFile.SMACK" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.BOING">
+<code class="sig-name descname">BOING</code><a class="headerlink" href="#parameters.SoundFile.BOING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.BOO">
+<code class="sig-name descname">BOO</code><a class="headerlink" href="#parameters.SoundFile.BOO" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.UH_OH">
+<code class="sig-name descname">UH_OH</code><a class="headerlink" href="#parameters.SoundFile.UH_OH" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.SNORING">
+<code class="sig-name descname">SNORING</code><a class="headerlink" href="#parameters.SoundFile.SNORING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.KUNG_FU">
+<code class="sig-name descname">KUNG_FU</code><a class="headerlink" href="#parameters.SoundFile.KUNG_FU" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.FANFARE">
+<code class="sig-name descname">FANFARE</code><a class="headerlink" href="#parameters.SoundFile.FANFARE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.CRUNCHING">
+<code class="sig-name descname">CRUNCHING</code><a class="headerlink" href="#parameters.SoundFile.CRUNCHING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.MAGIC_WAND">
+<code class="sig-name descname">MAGIC_WAND</code><a class="headerlink" href="#parameters.SoundFile.MAGIC_WAND" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.LAUGHING_1">
+<code class="sig-name descname">LAUGHING_1</code><a class="headerlink" href="#parameters.SoundFile.LAUGHING_1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>Information</p>
+<dl class="attribute">
+<dt id="parameters.SoundFile.LEFT">
+<code class="sig-name descname">LEFT</code><a class="headerlink" href="#parameters.SoundFile.LEFT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.BACKWARDS">
+<code class="sig-name descname">BACKWARDS</code><a class="headerlink" href="#parameters.SoundFile.BACKWARDS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.RIGHT">
+<code class="sig-name descname">RIGHT</code><a class="headerlink" href="#parameters.SoundFile.RIGHT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.OBJECT">
+<code class="sig-name descname">OBJECT</code><a class="headerlink" href="#parameters.SoundFile.OBJECT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.COLOR">
+<code class="sig-name descname">COLOR</code><a class="headerlink" href="#parameters.SoundFile.COLOR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.FLASHING">
+<code class="sig-name descname">FLASHING</code><a class="headerlink" href="#parameters.SoundFile.FLASHING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.ERROR">
+<code class="sig-name descname">ERROR</code><a class="headerlink" href="#parameters.SoundFile.ERROR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.ERROR_ALARM">
+<code class="sig-name descname">ERROR_ALARM</code><a class="headerlink" href="#parameters.SoundFile.ERROR_ALARM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.DOWN">
+<code class="sig-name descname">DOWN</code><a class="headerlink" href="#parameters.SoundFile.DOWN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.FORWARD">
+<code class="sig-name descname">FORWARD</code><a class="headerlink" href="#parameters.SoundFile.FORWARD" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.ACTIVATE">
+<code class="sig-name descname">ACTIVATE</code><a class="headerlink" href="#parameters.SoundFile.ACTIVATE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.SEARCHING">
+<code class="sig-name descname">SEARCHING</code><a class="headerlink" href="#parameters.SoundFile.SEARCHING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.TOUCH">
+<code class="sig-name descname">TOUCH</code><a class="headerlink" href="#parameters.SoundFile.TOUCH" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.UP">
+<code class="sig-name descname">UP</code><a class="headerlink" href="#parameters.SoundFile.UP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.ANALYZE">
+<code class="sig-name descname">ANALYZE</code><a class="headerlink" href="#parameters.SoundFile.ANALYZE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.STOP">
+<code class="sig-name descname">STOP</code><a class="headerlink" href="#parameters.SoundFile.STOP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.DETECTED">
+<code class="sig-name descname">DETECTED</code><a class="headerlink" href="#parameters.SoundFile.DETECTED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.TURN">
+<code class="sig-name descname">TURN</code><a class="headerlink" href="#parameters.SoundFile.TURN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.START">
+<code class="sig-name descname">START</code><a class="headerlink" href="#parameters.SoundFile.START" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>Communication</p>
+<dl class="attribute">
+<dt id="parameters.SoundFile.MORNING">
+<code class="sig-name descname">MORNING</code><a class="headerlink" href="#parameters.SoundFile.MORNING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.EV3">
+<code class="sig-name descname">EV3</code><a class="headerlink" href="#parameters.SoundFile.EV3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.GO">
+<code class="sig-name descname">GO</code><a class="headerlink" href="#parameters.SoundFile.GO" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.GOOD_JOB">
+<code class="sig-name descname">GOOD_JOB</code><a class="headerlink" href="#parameters.SoundFile.GOOD_JOB" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.OKEY_DOKEY">
+<code class="sig-name descname">OKEY_DOKEY</code><a class="headerlink" href="#parameters.SoundFile.OKEY_DOKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.GOOD">
+<code class="sig-name descname">GOOD</code><a class="headerlink" href="#parameters.SoundFile.GOOD" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.NO">
+<code class="sig-name descname">NO</code><a class="headerlink" href="#parameters.SoundFile.NO" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.THANK_YOU">
+<code class="sig-name descname">THANK_YOU</code><a class="headerlink" href="#parameters.SoundFile.THANK_YOU" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.YES">
+<code class="sig-name descname">YES</code><a class="headerlink" href="#parameters.SoundFile.YES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.GAME_OVER">
+<code class="sig-name descname">GAME_OVER</code><a class="headerlink" href="#parameters.SoundFile.GAME_OVER" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.OKAY">
+<code class="sig-name descname">OKAY</code><a class="headerlink" href="#parameters.SoundFile.OKAY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.SORRY">
+<code class="sig-name descname">SORRY</code><a class="headerlink" href="#parameters.SoundFile.SORRY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.BRAVO">
+<code class="sig-name descname">BRAVO</code><a class="headerlink" href="#parameters.SoundFile.BRAVO" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.GOODBYE">
+<code class="sig-name descname">GOODBYE</code><a class="headerlink" href="#parameters.SoundFile.GOODBYE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.HI">
+<code class="sig-name descname">HI</code><a class="headerlink" href="#parameters.SoundFile.HI" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.HELLO">
+<code class="sig-name descname">HELLO</code><a class="headerlink" href="#parameters.SoundFile.HELLO" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.MINDSTORMS">
+<code class="sig-name descname">MINDSTORMS</code><a class="headerlink" href="#parameters.SoundFile.MINDSTORMS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.LEGO">
+<code class="sig-name descname">LEGO</code><a class="headerlink" href="#parameters.SoundFile.LEGO" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.FANTASTIC">
+<code class="sig-name descname">FANTASTIC</code><a class="headerlink" href="#parameters.SoundFile.FANTASTIC" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>Movements</p>
+<dl class="attribute">
+<dt id="parameters.SoundFile.SPEED_IDLE">
+<code class="sig-name descname">SPEED_IDLE</code><a class="headerlink" href="#parameters.SoundFile.SPEED_IDLE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.SPEED_DOWN">
+<code class="sig-name descname">SPEED_DOWN</code><a class="headerlink" href="#parameters.SoundFile.SPEED_DOWN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.SPEED_UP">
+<code class="sig-name descname">SPEED_UP</code><a class="headerlink" href="#parameters.SoundFile.SPEED_UP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>Color</p>
+<dl class="attribute">
+<dt id="parameters.SoundFile.BROWN">
+<code class="sig-name descname">BROWN</code><a class="headerlink" href="#parameters.SoundFile.BROWN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.GREEN">
+<code class="sig-name descname">GREEN</code><a class="headerlink" href="#parameters.SoundFile.GREEN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.BLACK">
+<code class="sig-name descname">BLACK</code><a class="headerlink" href="#parameters.SoundFile.BLACK" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.WHITE">
+<code class="sig-name descname">WHITE</code><a class="headerlink" href="#parameters.SoundFile.WHITE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.RED">
+<code class="sig-name descname">RED</code><a class="headerlink" href="#parameters.SoundFile.RED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.BLUE">
+<code class="sig-name descname">BLUE</code><a class="headerlink" href="#parameters.SoundFile.BLUE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.YELLOW">
+<code class="sig-name descname">YELLOW</code><a class="headerlink" href="#parameters.SoundFile.YELLOW" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>Mechanical</p>
+<dl class="attribute">
+<dt id="parameters.SoundFile.TICK_TACK">
+<code class="sig-name descname">TICK_TACK</code><a class="headerlink" href="#parameters.SoundFile.TICK_TACK" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.HORN_1">
+<code class="sig-name descname">HORN_1</code><a class="headerlink" href="#parameters.SoundFile.HORN_1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.BACKING_ALERT">
+<code class="sig-name descname">BACKING_ALERT</code><a class="headerlink" href="#parameters.SoundFile.BACKING_ALERT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.MOTOR_IDLE">
+<code class="sig-name descname">MOTOR_IDLE</code><a class="headerlink" href="#parameters.SoundFile.MOTOR_IDLE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.AIR_RELEASE">
+<code class="sig-name descname">AIR_RELEASE</code><a class="headerlink" href="#parameters.SoundFile.AIR_RELEASE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.AIRBRAKE">
+<code class="sig-name descname">AIRBRAKE</code><a class="headerlink" href="#parameters.SoundFile.AIRBRAKE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.RATCHET">
+<code class="sig-name descname">RATCHET</code><a class="headerlink" href="#parameters.SoundFile.RATCHET" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.MOTOR_STOP">
+<code class="sig-name descname">MOTOR_STOP</code><a class="headerlink" href="#parameters.SoundFile.MOTOR_STOP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.HORN_2">
+<code class="sig-name descname">HORN_2</code><a class="headerlink" href="#parameters.SoundFile.HORN_2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.LASER">
+<code class="sig-name descname">LASER</code><a class="headerlink" href="#parameters.SoundFile.LASER" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.SONAR">
+<code class="sig-name descname">SONAR</code><a class="headerlink" href="#parameters.SoundFile.SONAR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.MOTOR_START">
+<code class="sig-name descname">MOTOR_START</code><a class="headerlink" href="#parameters.SoundFile.MOTOR_START" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>Animals</p>
+<dl class="attribute">
+<dt id="parameters.SoundFile.INSECT_BUZZ_2">
+<code class="sig-name descname">INSECT_BUZZ_2</code><a class="headerlink" href="#parameters.SoundFile.INSECT_BUZZ_2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.ELEPHANT_CALL">
+<code class="sig-name descname">ELEPHANT_CALL</code><a class="headerlink" href="#parameters.SoundFile.ELEPHANT_CALL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.SNAKE_HISS">
+<code class="sig-name descname">SNAKE_HISS</code><a class="headerlink" href="#parameters.SoundFile.SNAKE_HISS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.DOG_BARK_2">
+<code class="sig-name descname">DOG_BARK_2</code><a class="headerlink" href="#parameters.SoundFile.DOG_BARK_2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.DOG_WHINE">
+<code class="sig-name descname">DOG_WHINE</code><a class="headerlink" href="#parameters.SoundFile.DOG_WHINE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.INSECT_BUZZ_1">
+<code class="sig-name descname">INSECT_BUZZ_1</code><a class="headerlink" href="#parameters.SoundFile.INSECT_BUZZ_1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.DOG_SNIFF">
+<code class="sig-name descname">DOG_SNIFF</code><a class="headerlink" href="#parameters.SoundFile.DOG_SNIFF" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.T_REX_ROAR">
+<code class="sig-name descname">T_REX_ROAR</code><a class="headerlink" href="#parameters.SoundFile.T_REX_ROAR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.INSECT_CHIRP">
+<code class="sig-name descname">INSECT_CHIRP</code><a class="headerlink" href="#parameters.SoundFile.INSECT_CHIRP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.DOG_GROWL">
+<code class="sig-name descname">DOG_GROWL</code><a class="headerlink" href="#parameters.SoundFile.DOG_GROWL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.SNAKE_RATTLE">
+<code class="sig-name descname">SNAKE_RATTLE</code><a class="headerlink" href="#parameters.SoundFile.SNAKE_RATTLE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.DOG_BARK_1">
+<code class="sig-name descname">DOG_BARK_1</code><a class="headerlink" href="#parameters.SoundFile.DOG_BARK_1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.CAT_PURR">
+<code class="sig-name descname">CAT_PURR</code><a class="headerlink" href="#parameters.SoundFile.CAT_PURR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>Numbers</p>
+<dl class="attribute">
+<dt id="parameters.SoundFile.ZERO">
+<code class="sig-name descname">ZERO</code><a class="headerlink" href="#parameters.SoundFile.ZERO" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.ONE">
+<code class="sig-name descname">ONE</code><a class="headerlink" href="#parameters.SoundFile.ONE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.TWO">
+<code class="sig-name descname">TWO</code><a class="headerlink" href="#parameters.SoundFile.TWO" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.THREE">
+<code class="sig-name descname">THREE</code><a class="headerlink" href="#parameters.SoundFile.THREE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.FOUR">
+<code class="sig-name descname">FOUR</code><a class="headerlink" href="#parameters.SoundFile.FOUR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.FIVE">
+<code class="sig-name descname">FIVE</code><a class="headerlink" href="#parameters.SoundFile.FIVE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.SIX">
+<code class="sig-name descname">SIX</code><a class="headerlink" href="#parameters.SoundFile.SIX" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.SEVEN">
+<code class="sig-name descname">SEVEN</code><a class="headerlink" href="#parameters.SoundFile.SEVEN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.EIGHT">
+<code class="sig-name descname">EIGHT</code><a class="headerlink" href="#parameters.SoundFile.EIGHT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.NINE">
+<code class="sig-name descname">NINE</code><a class="headerlink" href="#parameters.SoundFile.NINE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.TEN">
+<code class="sig-name descname">TEN</code><a class="headerlink" href="#parameters.SoundFile.TEN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>System</p>
+<dl class="attribute">
+<dt id="parameters.SoundFile.READY">
+<code class="sig-name descname">READY</code><a class="headerlink" href="#parameters.SoundFile.READY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.CONFIRM">
+<code class="sig-name descname">CONFIRM</code><a class="headerlink" href="#parameters.SoundFile.CONFIRM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.GENERAL_ALERT">
+<code class="sig-name descname">GENERAL_ALERT</code><a class="headerlink" href="#parameters.SoundFile.GENERAL_ALERT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.CLICK">
+<code class="sig-name descname">CLICK</code><a class="headerlink" href="#parameters.SoundFile.CLICK" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="parameters.SoundFile.OVERPOWER">
+<code class="sig-name descname">OVERPOWER</code><a class="headerlink" href="#parameters.SoundFile.OVERPOWER" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="tools.html" class="btn btn-neutral float-right" title="tools – Timing and Datalogging" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ev3devices.html" class="btn btn-neutral float-left" title="ev3devices – EV3 Motors and Sensors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
