@@ -7,6 +7,9 @@ pr:
     include:
     - tests/*
     - pybricks/*
+    - docs/*
+    - template/*
+    - version.txt
     - setup.py
     - azure-pipelines.yml
     exclude:
@@ -54,8 +57,8 @@ jobs:
     inputs:
       targetType: 'inline'
       script: |
-        pip install pytest pytest-azurepipelines
-        pytest
+        pip install pytest pytest-azurepipelines pytest-cov
+        pytest --cov pybricks --cov-report html
     displayName: 'pytest'
 
 - job: Build
