@@ -1,8 +1,11 @@
 # lego-micropython-skeleton
 
-Master Build Status: [![Build Status](https://dev.azure.com/leetzilantonisibmcom/LegoExtension/_apis/build/status/KlutzyBubbles.lego-micropython-skeleton?branchName=master)](https://dev.azure.com/leetzilantonisibmcom/LegoExtension/_build/latest?definitionId=3&branchName=master)
+![Downloads](https://img.shields.io/pypi/dm/lego-mp-skeleton) ![License](https://img.shields.io/pypi/l/lego-mp-skeleton) ![Version](https://img.shields.io/pypi/v/lego-mp-skeleton) ![Python Version](https://img.shields.io/pypi/pyversions/lego-mp-skeleton)
 
-Dev Build Status: [![Build Status](https://dev.azure.com/leetzilantonisibmcom/LegoExtension/_apis/build/status/KlutzyBubbles.lego-micropython-skeleton?branchName=dev)](https://dev.azure.com/leetzilantonisibmcom/LegoExtension/_build/latest?definitionId=3&branchName=dev)
+Branch | Build Status | Test Status | Test Coverage | Code Grade
+------ | ------------ | ----------- | ------------- | ----------
+Master | ![Build Status](https://img.shields.io/azure-devops/build/leetzilantonisibmcom/e89ff3b5-d86a-4bb3-bcef-40f7255e5d10/3/master) | ![Test Status](https://img.shields.io/azure-devops/tests/leetzilantonisibmcom/LegoExtension/3/master?compact_message) | ![Test Coverage](https://img.shields.io/azure-devops/coverage/leetzilantonisibmcom/legoextension/3/master) | ![Code Grade](https://img.shields.io/codacy/grade/cf0f96b46c484bf9ae6851088780e50e/master)
+Dev | ![Build Status](https://img.shields.io/azure-devops/build/leetzilantonisibmcom/e89ff3b5-d86a-4bb3-bcef-40f7255e5d10/3/dev) | ![Test Status](https://img.shields.io/azure-devops/tests/leetzilantonisibmcom/LegoExtension/3/dev?compact_message) | ![Test Coverage](https://img.shields.io/azure-devops/coverage/leetzilantonisibmcom/legoextension/3/dev) | ![Code Grade](https://img.shields.io/codacy/grade/cf0f96b46c484bf9ae6851088780e50e/dev)
 
 NOTE: We have recently dropped support for python 2.7, please make sure you are developing on a machine with python >3.4
 
