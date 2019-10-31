@@ -38,9 +38,9 @@ You can find this project hosted on PyPi here: <https://pypi.org/project/lego-mp
 
 Contributing is easy :D
 
- 1. Fork the dev branch
- 2. Make your changes
- 3. Make a pull request into dev
+1. Fork the dev branch
+2. Make your changes
+3. Make a pull request into dev
 
 ## License
 
