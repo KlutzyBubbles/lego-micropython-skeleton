@@ -6,7 +6,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="lego-mp-skeleton",
-    version="0.1.6" + os.environ['PACKAGE_BUILD'],
+    version=os.environ['PACKAGE_VERSION'],
     author="Lee Tzilantonis",
     author_email="LTzilantonis@gmail.com",
     description="Skeleton for the Lego EV3 MicroPython Port",

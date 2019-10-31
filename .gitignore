@@ -124,3 +124,11 @@ dmypy.json
 .pyre/
 
 include
+
+.*
+
+!template/*
+
+node_modules
+package-lock.json
+package.json
