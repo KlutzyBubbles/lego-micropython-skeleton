@@ -22,6 +22,8 @@ variables:
 - name: BuildNumber
   value: '$(Build.BuildNumber)'
 
+name: $(Date:yyyyMMdd)$(Rev:.rr)
+
 jobs:
 - job: Test
   pool:
