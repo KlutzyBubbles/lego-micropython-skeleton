@@ -3,6 +3,7 @@ from sys import stdout
 import builtins
 
 def print(*value, sep=' ', end='\n', file=stdout, flush=False):
+    # pylint: disable=redefined-builtin
     """Print values on the terminal or a stream.
 
     Example:
